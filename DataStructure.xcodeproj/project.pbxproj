@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CEC2F252175C304300E95B8C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEC2F251175C304300E95B8C /* main.cpp */; };
 		CEC2F254175C304300E95B8C /* DataStructure.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEC2F253175C304300E95B8C /* DataStructure.1 */; };
+		CEC2F25D175CCDA600E95B8C /* SkipList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEC2F25B175CCDA600E95B8C /* SkipList.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,9 @@
 		CEC2F24E175C304300E95B8C /* DataStructure */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DataStructure; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC2F251175C304300E95B8C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		CEC2F253175C304300E95B8C /* DataStructure.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = DataStructure.1; sourceTree = "<group>"; };
+		CEC2F25A175C796300E95B8C /* random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = random.h; sourceTree = "<group>"; };
+		CEC2F25B175CCDA600E95B8C /* SkipList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkipList.cpp; sourceTree = "<group>"; };
+		CEC2F25C175CCDA600E95B8C /* SkipList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkipList.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,9 @@
 			children = (
 				CEC2F251175C304300E95B8C /* main.cpp */,
 				CEC2F253175C304300E95B8C /* DataStructure.1 */,
+				CEC2F25A175C796300E95B8C /* random.h */,
+				CEC2F25B175CCDA600E95B8C /* SkipList.cpp */,
+				CEC2F25C175CCDA600E95B8C /* SkipList.h */,
 			);
 			path = DataStructure;
 			sourceTree = "<group>";
@@ -118,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEC2F252175C304300E95B8C /* main.cpp in Sources */,
+				CEC2F25D175CCDA600E95B8C /* SkipList.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +192,7 @@
 		CEC2F258175C304300E95B8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -191,6 +200,7 @@
 		CEC2F259175C304300E95B8C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
