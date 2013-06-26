@@ -48,4 +48,9 @@ public:
     void Insert(int key, string value);
     bool Delete(int key);
 };
+
+
+
+void testSkipList();
+
 #endif /* defined(__DataStructure__SkipList__) */

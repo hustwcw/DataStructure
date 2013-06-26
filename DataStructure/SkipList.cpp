@@ -90,3 +90,30 @@ int SkipList::randLevel()
     
     return level;
 }
+
+
+
+void testSkipList()
+{
+    SkipList skiplist;
+    Random random(0xdeadbeef);
+    clock_t start = clock();
+    for (int i = 0; i < 1000; i++) {
+        int rand = random.Next();
+        //        stringstream ss;
+        //        ss << rand << "value";
+        skiplist.Insert(rand, "value");
+    }
+    cout << clock() - start << endl;
+    cout << "length: " << skiplist.length << endl;
+    for (int i = 1990; i < 2000; i++) {
+        string value = skiplist.Search(i);
+        if (value.length()) {
+            cout << i << endl;
+        }
+        else
+        {
+            //            cout << "not found" << endl;
+        }
+    }
+}

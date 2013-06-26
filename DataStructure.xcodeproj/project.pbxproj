@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB9160DA177A851D00C8A1C9 /* BinaryTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB9160D8177A851D00C8A1C9 /* BinaryTree.cpp */; };
 		CEC2F252175C304300E95B8C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEC2F251175C304300E95B8C /* main.cpp */; };
 		CEC2F254175C304300E95B8C /* DataStructure.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEC2F253175C304300E95B8C /* DataStructure.1 */; };
 		CEC2F25D175CCDA600E95B8C /* SkipList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEC2F25B175CCDA600E95B8C /* SkipList.cpp */; };
@@ -26,6 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BB9160D8177A851D00C8A1C9 /* BinaryTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryTree.cpp; sourceTree = "<group>"; };
+		BB9160D9177A851D00C8A1C9 /* BinaryTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinaryTree.h; sourceTree = "<group>"; };
 		CEC2F24E175C304300E95B8C /* DataStructure */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DataStructure; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC2F251175C304300E95B8C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		CEC2F253175C304300E95B8C /* DataStructure.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = DataStructure.1; sourceTree = "<group>"; };
@@ -69,6 +72,8 @@
 				CEC2F25A175C796300E95B8C /* random.h */,
 				CEC2F25B175CCDA600E95B8C /* SkipList.cpp */,
 				CEC2F25C175CCDA600E95B8C /* SkipList.h */,
+				BB9160D8177A851D00C8A1C9 /* BinaryTree.cpp */,
+				BB9160D9177A851D00C8A1C9 /* BinaryTree.h */,
 			);
 			path = DataStructure;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 			files = (
 				CEC2F252175C304300E95B8C /* main.cpp in Sources */,
 				CEC2F25D175CCDA600E95B8C /* SkipList.cpp in Sources */,
+				BB9160DA177A851D00C8A1C9 /* BinaryTree.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +164,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -184,7 +190,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -224,6 +230,7 @@
 				CEC2F259175C304300E95B8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
