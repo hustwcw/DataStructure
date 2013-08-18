@@ -25,7 +25,7 @@ BinaryTreeNode *ConstructCore(int *startPreorder, int *endPreorder,
 	}
 	if (rootInorder == endInorder && *rootInorder != root->value)
 	{
-		throw std::exception("Invalid Input.");
+		throw std::exception();
 	}
 
 	int leftLength = rootInorder - startInorder;
@@ -82,9 +82,22 @@ void LevelOrder(BinaryTreeNode *root)
 		{
 			nodeQueue.push(p->right);
 		}
-
-		
 	}
+    cout << endl;
+}
+
+
+BinaryTreeNode *mirror(BinaryTreeNode *head)
+{
+    if (head == NULL) {
+        return NULL;
+    }
+
+    BinaryTreeNode *pRight = head->right;
+    head->right = mirror(head->left);
+    head->left = mirror(pRight);
+
+    return head;
 }
 int main()
 {
@@ -94,6 +107,7 @@ int main()
 	BinaryTreeNode *root = Construct(preorder, inorder, 8);
 	LevelOrder(root);
 
-	system("pause");
+    LevelOrder(mirror(root));
+
 	return 0;
 }
