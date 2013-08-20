@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#include <stack>
 
 using namespace std;
 
@@ -10,6 +11,8 @@ struct BinaryTreeNode
 	BinaryTreeNode *left;
 	BinaryTreeNode *right;
 };
+
+stack<int> path;
 
 BinaryTreeNode *ConstructCore(int *startPreorder, int *endPreorder,
 							  int *startInorder, int *endInorder)
@@ -205,17 +208,65 @@ bool HasSubTree(BinaryTreeNode *rootA, BinaryTreeNode *rootB)
 }
 
 
+bool FindPath(BinaryTreeNode *root, int sum)
+{
+    if (root == NULL || sum <= 0) {
+        return false;
+    }
+
+    if (root->left == NULL && root->right == NULL) {
+        if (root->value == sum) {
+            path.push(root->value);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    bool leftresult = false;
+    if (root->left) {
+        leftresult = FindPath(root->left, sum-root->value);
+    }
+
+    bool rightresult = false;
+    if (root->right) {
+        rightresult = FindPath(root->right, sum-root->value);
+    }
+
+    if (leftresult || rightresult) {
+        if (leftresult) {
+            path.push(root->value);
+        }
+        if (rightresult) {
+            path.push(root->value);
+        }
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 int main()
 {
 	int preorder[] = {1, 2, 4, 7, 3, 5, 6, 8};
 	int inorder[] = {4, 7, 2, 1, 5, 3, 8, 6};
     int nodeArrayA[] = {8, 8, 7, 9, 2, 0, 0, 0, 0, 4, 7, 0, 0, 0, 0};
     int nodeArrayB[] = {8, 9, 2, 0, 0, 4, 7, 0, 0, 0, 0};
+    int array[] = {10, 5, 12, 4, 7, 0, 0, 0, 0, 0, 0};
 
+    BinaryTreeNode *root = Construct(array, sizeof(array)/sizeof(int));
 	BinaryTreeNode *rootA = Construct(nodeArrayA, sizeof(nodeArrayA)/sizeof(int));
     BinaryTreeNode *rootB = Construct(nodeArrayB, sizeof(nodeArrayB)/sizeof(int));
 
-    bool result = HasSubTree(rootA, rootB);
-    cout << result << endl;
+    FindPath(root, 22);
+    LevelOrder(root);
+    while(!path.empty())
+    {
+        cout << path.top();
+        path.pop();
+    }
+//    bool result = HasSubTree(rootA, rootB);
+//    cout << result << endl;
 	return 0;
 }
