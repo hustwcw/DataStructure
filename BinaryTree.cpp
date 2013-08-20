@@ -247,6 +247,38 @@ bool FindPath(BinaryTreeNode *root, int sum)
         return false;
     }
 }
+
+
+void ConverToLinkList(BinaryTreeNode *root, BinaryTreeNode **head, BinaryTreeNode **tail)
+{
+    if (root == NULL) {
+        return;
+    }
+    if (root->left == NULL && root->right == NULL) {
+        *head = root;
+        *tail = root;
+        return;
+    }
+    BinaryTreeNode *leftHead = NULL, *leftTail = NULL;
+    if (root->left) {
+        ConverToLinkList(root->left, &leftHead, &leftTail);
+    }
+
+    BinaryTreeNode *rightHead = NULL, *rightTail = NULL;
+    if (root->right) {
+        ConverToLinkList(root->right, &rightHead, &rightTail);
+    }
+
+    root->left = leftTail;
+    leftTail->right = root;
+    root->right = rightHead;
+    rightHead->left = root;
+    
+    *head = leftHead;
+    *tail = rightTail;
+}
+
+
 int main()
 {
 	int preorder[] = {1, 2, 4, 7, 3, 5, 6, 8};
@@ -254,17 +286,21 @@ int main()
     int nodeArrayA[] = {8, 8, 7, 9, 2, 0, 0, 0, 0, 4, 7, 0, 0, 0, 0};
     int nodeArrayB[] = {8, 9, 2, 0, 0, 4, 7, 0, 0, 0, 0};
     int array[] = {10, 5, 12, 4, 7, 0, 0, 0, 0, 0, 0};
+    int bstArray[] = {10, 6, 14, 4, 8, 12, 16, 0, 0, 0, 0, 0, 0, 0, 0};
 
     BinaryTreeNode *root = Construct(array, sizeof(array)/sizeof(int));
 	BinaryTreeNode *rootA = Construct(nodeArrayA, sizeof(nodeArrayA)/sizeof(int));
     BinaryTreeNode *rootB = Construct(nodeArrayB, sizeof(nodeArrayB)/sizeof(int));
-
-    FindPath(root, 22);
-    LevelOrder(root);
-    while(!path.empty())
+    BinaryTreeNode *bstRoot = Construct(bstArray, sizeof(bstArray)/sizeof(int));
+    
+    LevelOrder(bstRoot);
+    BinaryTreeNode *head = NULL, *tail = NULL;
+    ConverToLinkList(bstRoot, &head, &tail);
+    BinaryTreeNode *p = head;
+    while(p!=NULL)
     {
-        cout << path.top();
-        path.pop();
+        cout << p->value << endl;
+        p = p->right;
     }
 //    bool result = HasSubTree(rootA, rootB);
 //    cout << result << endl;
