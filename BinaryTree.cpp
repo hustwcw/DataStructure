@@ -143,6 +143,38 @@ void LevelOrder(BinaryTreeNode *root)
 }
 
 
+void postOrderNonRecursive(BinaryTreeNode *root)
+{
+  if(root == NULL)
+  {
+    return;
+  }
+
+  stack<BinaryTreeNode *> s;
+  s.push(root);
+  BinaryTreeNode *prev = NULL;
+  while(!s.empty())
+  {
+    BinaryTreeNode *pNode = s.top();
+    if(pNode->left != NULL && prev != pNode->left && prev != pNode->right)
+    {
+      s.push(pNode->left);
+    }
+    else if(pNode->right != NULL && prev != pNode->right)
+    {
+      s.push(pNode->right);
+    }
+    else
+    {
+      prev = pNode;
+      cout << pNode->value << "  ";
+      s.pop();
+    }
+  }
+  cout << endl;
+}
+
+
 BinaryTreeNode *mirror(BinaryTreeNode *head)
 {
     if (head == NULL) {
@@ -285,7 +317,7 @@ int main()
 	int inorder[] = {4, 7, 2, 1, 5, 3, 8, 6};
     int nodeArrayA[] = {8, 8, 7, 9, 2, 0, 0, 0, 0, 4, 7, 0, 0, 0, 0};
     int nodeArrayB[] = {8, 9, 2, 0, 0, 4, 7, 0, 0, 0, 0};
-    int array[] = {10, 5, 12, 4, 7, 0, 0, 0, 0, 0, 0};
+    int array[] = {1, 2, 3, 4, 5, 6, 7, 0, 0, 8, 0, 0, 9, 0, 0, 0, 0, 0, 0};
     int bstArray[] = {10, 6, 14, 4, 8, 12, 16, 0, 0, 0, 0, 0, 0, 0, 0};
 
     BinaryTreeNode *root = Construct(array, sizeof(array)/sizeof(int));
@@ -294,14 +326,17 @@ int main()
     BinaryTreeNode *bstRoot = Construct(bstArray, sizeof(bstArray)/sizeof(int));
     
     LevelOrder(bstRoot);
+    postOrderNonRecursive(root);
+    /*
     BinaryTreeNode *head = NULL, *tail = NULL;
     ConverToLinkList(bstRoot, &head, &tail);
-    BinaryTreeNode *p = head;
+    BinaryTreeNode *p = tail;
     while(p!=NULL)
     {
         cout << p->value << endl;
-        p = p->right;
+        p = p->left;
     }
+    */
 //    bool result = HasSubTree(rootA, rootB);
 //    cout << result << endl;
 	return 0;
