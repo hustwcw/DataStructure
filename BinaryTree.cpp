@@ -156,7 +156,7 @@ void postOrderNonRecursive(BinaryTreeNode *root)
   while(!s.empty())
   {
     BinaryTreeNode *pNode = s.top();
-    if(pNode->left != NULL && prev != pNode->left && prev != pNode->right)
+    if(pNode->left != NULL && prev != pNode->left && (prev != pNode->right || prev == NULL))
     {
       s.push(pNode->left);
     }
