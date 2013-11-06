@@ -175,6 +175,56 @@ void postOrderNonRecursive(BinaryTreeNode *root)
 }
 
 
+vector<int> preorderTraversal(BinaryTreeNode *root)
+{
+  vector<int> result;
+  stack<BinaryTreeNode *>s;
+  BinaryTreeNode *p = root;
+  while(p != NULL || !s.empty())
+  {
+    if(p != NULL)
+    {
+      s.push(p);
+      result.push_back(p->value);
+      p = p->left;
+    }
+    else
+    {
+      p = s.top();
+      s.pop();
+      p = p->right;
+    }
+  }
+  return result;
+}
+
+
+
+vector<int> inorderTraversal(BinaryTreeNode *root)
+{
+  vector<int> result;
+  stack<BinaryTreeNode *>s;
+  BinaryTreeNode *p = root;
+  while(p != NULL || !s.empty())
+  {
+    if(p != NULL)
+    {
+      s.push(p);
+      p = p->left;
+    }
+    else
+    {
+      p = s.top();
+      s.pop();
+      result.push_back(p->value);
+      p = p->right;
+    }
+  }
+  return result;
+}
+
+
+
 BinaryTreeNode *mirror(BinaryTreeNode *head)
 {
     if (head == NULL) {
@@ -327,6 +377,19 @@ int main()
     
     LevelOrder(bstRoot);
     postOrderNonRecursive(root);
+    vector<int> result = preorderTraversal(root);
+    for(int i = 0; i < result.size(); ++i)
+    {
+      cout << result[i] << "  ";
+    }
+    cout << endl;
+    result.clear();
+    result = inorderTraversal(root);
+    for(int i = 0; i < result.size(); ++i)
+    {
+      cout << result[i] << "  ";
+    }
+    cout << endl;
     /*
     BinaryTreeNode *head = NULL, *tail = NULL;
     ConverToLinkList(bstRoot, &head, &tail);
